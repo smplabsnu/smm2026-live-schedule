@@ -1,270 +1,938 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+/* =========================================================
+   GOOGLE FONT SETUP
 
-:root{
-  --navy:#0b2947;
-  --red:#ef353b;
-  --blue:#0d62a5;
-  --light-blue:#dfe8f2;
-  --line:#d3dce7;
-  --muted:#65758a;
-  --bg:#ffffff;
-}
+   Amaranth:
+   - Soft Matter Meet
+   - Membrane Biophysics
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--navy);
-  font-family:'Nunito Sans',Arial,sans-serif;
-}
+   PT Serif:
+   - Everything else
+========================================================= */
 
-.hero-header{
-  text-align:center;
-  padding:7px 20px 58px;
-}
-.snu-logo{
-  width:190px;
-  height:auto;
-  display:block;
-  margin:0 auto 14px;
-  object-fit:contain;
-}
-.hero-header h1{
-  margin:0;
-  font-family:'Barlow Condensed',Arial,sans-serif;
-  font-size:39px;
-  line-height:1;
-  font-weight:800;
-  letter-spacing:.1px;
-}
-.hero-header h2{
-  margin:10px 0 15px;
-  color:var(--red);
-  font-family:'Barlow Condensed',Arial,sans-serif;
-  font-size:52px;
-  line-height:1;
-  font-weight:800;
-}
-.department,.school{
-  font-family:'Barlow Condensed',Arial,sans-serif;
-  font-size:22px;
-  font-weight:600;
-  letter-spacing:.2px;
-}
-.school{margin-top:2px}
-.date{
-  margin-top:17px;
-  font-family:'Barlow Condensed',Arial,sans-serif;
-  font-size:20px;
-  font-weight:600;
-  letter-spacing:3px;
+:root {
+
+    --navy: #0b2947;
+    --navy-light: #173c5d;
+
+    --red: #ef353b;
+    --red-dark: #d92d33;
+
+    --white: #ffffff;
+    --off-white: #f8f8f6;
+
+    --light-grey: #eeeeee;
+    --grey: #777777;
+    --dark-grey: #333333;
+
+    --border: #dedede;
+
 }
 
-.container{
-  width:min(1020px,calc(100% - 40px));
-  margin:0 auto;
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-.live-panel{
-  min-height:153px;
-  border:1px solid #cfd9e5;
-  border-radius:15px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  margin-bottom:20px;
-  overflow:hidden;
-}
-.live-column,.next-column{
-  padding:21px 30px;
-}
-.next-column{
-  border-left:1px solid #cfd9e5;
-}
-.panel-label{
-  color:var(--red);
-  font-size:14px;
-  font-weight:900;
-  letter-spacing:.3px;
-}
-.red-dot{
-  display:inline-block;
-  width:16px;height:16px;
-  border-radius:50%;
-  background:#ef353b;
-  vertical-align:-2px;
-  margin-right:9px;
-}
-.next-label{color:var(--navy)}
-.arrow{
-  display:inline-block;
-  font-size:25px;
-  line-height:10px;
-  margin-right:8px;
-  font-weight:400;
-}
-.live-title,.next-title{
-  margin-top:9px;
-  font-family:'Barlow Condensed',Arial,sans-serif;
-  font-size:21px;
-  font-weight:800;
-  line-height:1.15;
-}
-.live-subtitle,.next-subtitle{
-  color:#718096;
-  font-size:13px;
-  margin-top:5px;
-}
-.live-time,.next-time{
-  margin-top:8px;
-  font-family:'Barlow Condensed',Arial,sans-serif;
-  font-weight:800;
-  font-size:15px;
-}
-.progress-wrap{
-  margin-top:11px;
-  height:4px;
-  background:#edf1f5;
-  border-radius:10px;
-  overflow:hidden;
-  display:none;
-}
-.progress{
-  width:0%;
-  height:100%;
-  background:var(--red);
+
+body {
+
+    background: var(--off-white);
+
+    color: var(--dark-grey);
+
+    font-family: "PT Serif", serif;
+
+    line-height: 1.5;
+
 }
 
-.day-tabs{
-  display:flex;
-  gap:10px;
-  margin:0 0 25px;
-}
-.day-tab{
-  border:0;
-  border-radius:9px;
-  background:#dfe7f0;
-  color:var(--navy);
-  padding:13px 22px;
-  font-family:'Barlow Condensed',Arial,sans-serif;
-  font-size:16px;
-  font-weight:800;
-  cursor:pointer;
-}
-.day-tab.active{
-  background:#0b2947;
-  color:#fff;
-}
-.day-tab:hover{filter:brightness(.98)}
 
-.day-heading{
-  margin-top:5px;
-  margin-bottom:12px;
-  padding-bottom:9px;
-  border-bottom:2px solid #dbe2ea;
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-}
-.day-heading h3{
-  margin:0;
-  font-family:'Barlow Condensed',Arial,sans-serif;
-  font-size:24px;
-}
-.day-heading span{
-  font-size:12px;
-  color:#718096;
-  font-weight:700;
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+
+    background: var(--white);
+
+    border-bottom: 1px solid var(--border);
+
+    padding: 22px 5vw;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
 }
 
-.session{margin-bottom:14px}
-.session-head{
-  background:#e8eef5;
-  border-radius:8px 8px 0 0;
-  padding:9px 13px;
-  font-family:'Barlow Condensed',Arial,sans-serif;
-  font-size:15px;
-  font-weight:800;
-  color:#294766;
-}
-.session-head small{
-  color:#6c7b8e;
-  font-weight:600;
-  font-size:13px;
-}
-.item{
-  display:grid;
-  grid-template-columns:125px 1fr;
-  gap:15px;
-  padding:13px 14px;
-  border:1px solid #e1e6ec;
-  border-top:0;
-  background:#fff;
-}
-.item:first-of-type{border-radius:0 0 7px 7px}
-.item time{
-  font-family:'Barlow Condensed',Arial,sans-serif;
-  font-weight:800;
-  font-size:14px;
-}
-.item .title{
-  font-family:'Barlow Condensed',Arial,sans-serif;
-  font-weight:700;
-  font-size:16px;
-  line-height:1.2;
-}
-.speaker{
-  margin-top:4px;
-  color:#17639b;
-  font-size:13px;
-  font-weight:800;
-}
-.institution{
-  color:#7a8797;
-  font-size:12px;
-  margin-top:1px;
-}
-.tag{
-  display:none;
-}
-.item.break{
-  background:#f7f8fa;
-}
-.item.live{
-  background:#fff7f7;
-  box-shadow:inset 4px 0 0 var(--red);
-}
-.item.done{opacity:.56}
 
-footer{
-  margin-top:45px;
-  padding:22px 20px;
-  border-top:1px solid #e1e6ec;
-  color:#6f7c8e;
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  font-size:12px;
+.header-left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
 }
 
-@media(max-width:700px){
-  .hero-header{padding-bottom:30px}
-  .snu-logo{width:160px}
-  .hero-header h1{font-size:31px}
-  .hero-header h2{font-size:40px}
-  .department,.school{font-size:18px}
-  .date{font-size:16px;letter-spacing:2px}
-  .container{width:min(100% - 24px,1020px)}
-  .live-panel{grid-template-columns:1fr}
-  .next-column{border-left:0;border-top:1px solid #cfd9e5}
-  .live-column,.next-column{padding:18px 20px}
-  .day-tabs{overflow:auto}
-  .day-tab{white-space:nowrap;padding:11px 15px}
-  .item{grid-template-columns:86px 1fr;gap:10px}
-  .item time{font-size:12px}
-  .item .title{font-size:15px}
-  .day-heading{display:block}
-  .day-heading span{display:block;margin-top:4px}
-  footer{display:block}
-  footer div+div{margin-top:5px}
+
+.snu-logo {
+
+    width: 115px;
+
+    height: auto;
+
+    object-fit: contain;
+
+}
+
+
+.conference-heading {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+/* =========================================================
+   ONLY THESE TWO USE AMARANTH
+========================================================= */
+
+.conference-title {
+
+    font-family: "Amaranth", sans-serif;
+
+    font-size: 38px;
+
+    font-weight: 700;
+
+    line-height: 1.05;
+
+    color: var(--navy);
+
+    letter-spacing: 0.2px;
+
+}
+
+
+.conference-subtitle {
+
+    font-family: "Amaranth", sans-serif;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    color: var(--red);
+
+    margin-top: 3px;
+
+}
+
+
+/* =========================================================
+   EVERYTHING BELOW USES PT SERIF
+========================================================= */
+
+.department {
+
+    font-family: "PT Serif", serif;
+
+    font-size: 16px;
+
+    margin-top: 9px;
+
+    color: var(--navy);
+
+}
+
+
+.school {
+
+    font-family: "PT Serif", serif;
+
+    font-size: 15px;
+
+    color: var(--grey);
+
+}
+
+
+.conference-date {
+
+    font-family: "PT Serif", serif;
+
+    font-size: 18px;
+
+    color: var(--navy);
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.main-container {
+
+    width: 90%;
+
+    max-width: 1250px;
+
+    margin: 35px auto 50px;
+
+}
+
+
+/* =========================================================
+   LIVE SECTION
+========================================================= */
+
+.live-section {
+
+    margin-bottom: 35px;
+
+}
+
+
+.live-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 12px;
+
+}
+
+
+.live-label {
+
+    font-family: "PT Serif", serif;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    color: var(--navy);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.live-dot {
+
+    width: 9px;
+
+    height: 9px;
+
+    background: var(--red);
+
+    border-radius: 50%;
+
+    display: inline-block;
+
+    animation: pulse 1.5s infinite;
+
+}
+
+
+@keyframes pulse {
+
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+
+.current-time {
+
+    font-family: "PT Serif", serif;
+
+    font-size: 15px;
+
+    color: var(--grey);
+
+}
+
+
+/* =========================================================
+   LIVE GRID
+========================================================= */
+
+.live-grid {
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 16px;
+
+}
+
+
+.live-card {
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    padding: 26px;
+
+    min-height: 180px;
+
+}
+
+
+.happening-card {
+
+    border-top: 4px solid var(--red);
+
+}
+
+
+.next-card {
+
+    border-top: 4px solid var(--navy);
+
+}
+
+
+.card-label {
+
+    font-family: "PT Serif", serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: var(--grey);
+
+    margin-bottom: 14px;
+
+}
+
+
+.session-title {
+
+    font-family: "PT Serif", serif;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    color: var(--navy);
+
+    line-height: 1.2;
+
+    margin-bottom: 8px;
+
+}
+
+
+.session-speaker {
+
+    font-family: "PT Serif", serif;
+
+    font-size: 17px;
+
+    color: var(--dark-grey);
+
+    margin-bottom: 6px;
+
+}
+
+
+.session-time {
+
+    font-family: "PT Serif", serif;
+
+    font-size: 15px;
+
+    color: var(--grey);
+
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.progress-container {
+
+    width: 100%;
+
+    height: 5px;
+
+    background: #e5e5e5;
+
+    margin-top: 20px;
+
+    overflow: hidden;
+
+}
+
+
+.progress-bar {
+
+    height: 100%;
+
+    width: 0%;
+
+    background: var(--red);
+
+    transition: width 1s linear;
+
+}
+
+
+/* =========================================================
+   SCHEDULE SECTION
+========================================================= */
+
+.schedule-section {
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+}
+
+
+.day-tabs {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+.day-tab {
+
+    border: none;
+
+    border-right: 1px solid var(--border);
+
+    background: #f5f5f3;
+
+    padding: 15px 10px;
+
+    cursor: pointer;
+
+    font-family: "PT Serif", serif;
+
+    color: var(--navy);
+
+    transition: all 0.2s ease;
+
+}
+
+
+.day-tab:last-child {
+
+    border-right: none;
+
+}
+
+
+.day-tab span {
+
+    display: block;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+}
+
+
+.day-tab small {
+
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 13px;
+
+    color: var(--grey);
+
+}
+
+
+.day-tab:hover {
+
+    background: #eeeeec;
+
+}
+
+
+.day-tab.active {
+
+    background: var(--navy);
+
+    color: var(--white);
+
+}
+
+
+.day-tab.active small {
+
+    color: #d9e1e8;
+
+}
+
+
+/* =========================================================
+   SCHEDULE HEADER
+========================================================= */
+
+.schedule-header {
+
+    padding: 22px 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 1px solid var(--border);
+
+    font-family: "PT Serif", serif;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    color: var(--navy);
+
+}
+
+
+.venue {
+
+    font-size: 14px;
+
+    font-weight: 400;
+
+    color: var(--grey);
+
+}
+
+
+/* =========================================================
+   SCHEDULE CONTAINER
+========================================================= */
+
+.schedule-container {
+
+    width: 100%;
+
+}
+
+
+.schedule-row {
+
+    display: grid;
+
+    grid-template-columns: 130px 1fr;
+
+    border-bottom: 1px solid var(--border);
+
+    min-height: 70px;
+
+}
+
+
+.schedule-row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.schedule-time {
+
+    padding: 18px 20px;
+
+    background: #fafaf8;
+
+    border-right: 1px solid var(--border);
+
+    font-family: "PT Serif", serif;
+
+    font-size: 14px;
+
+    color: var(--grey);
+
+    white-space: nowrap;
+
+}
+
+
+.schedule-content {
+
+    padding: 17px 22px;
+
+}
+
+
+.schedule-title {
+
+    font-family: "PT Serif", serif;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    color: var(--navy);
+
+    margin-bottom: 3px;
+
+}
+
+
+.schedule-speaker {
+
+    font-family: "PT Serif", serif;
+
+    font-size: 14px;
+
+    color: var(--grey);
+
+}
+
+
+.schedule-type {
+
+    display: inline-block;
+
+    font-family: "PT Serif", serif;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+
+    color: var(--red);
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================================================
+   ACTIVE SCHEDULE ROW
+========================================================= */
+
+.schedule-row.current {
+
+    background: #fff6f6;
+
+    border-left: 4px solid var(--red);
+
+}
+
+
+.schedule-row.current .schedule-time {
+
+    color: var(--red);
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   BREAK / MEAL ROWS
+========================================================= */
+
+.schedule-row.break-row {
+
+    background: #fafaf8;
+
+}
+
+
+.schedule-row.break-row .schedule-title {
+
+    color: var(--grey);
+
+    font-weight: 400;
+
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading {
+
+    padding: 50px;
+
+    text-align: center;
+
+    font-family: "PT Serif", serif;
+
+    color: var(--grey);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+
+    background: var(--navy);
+
+    color: white;
+
+    padding: 22px 5vw;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    font-family: "PT Serif", serif;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .site-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .conference-date {
+
+        margin-left: 137px;
+
+    }
+
+
+    .live-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .schedule-row {
+
+        grid-template-columns: 105px 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .site-header {
+
+        padding: 18px 5vw;
+
+    }
+
+
+    .header-left {
+
+        gap: 14px;
+
+    }
+
+
+    .snu-logo {
+
+        width: 85px;
+
+    }
+
+
+    .conference-title {
+
+        font-size: 29px;
+
+    }
+
+
+    .conference-subtitle {
+
+        font-size: 22px;
+
+    }
+
+
+    .department {
+
+        font-size: 13px;
+
+    }
+
+
+    .school {
+
+        font-size: 12px;
+
+    }
+
+
+    .conference-date {
+
+        margin-left: 99px;
+
+        font-size: 14px;
+
+    }
+
+
+    .main-container {
+
+        width: 94%;
+
+        margin-top: 22px;
+
+    }
+
+
+    .live-card {
+
+        padding: 20px;
+
+    }
+
+
+    .session-title {
+
+        font-size: 21px;
+
+    }
+
+
+    .day-tab span {
+
+        font-size: 14px;
+
+    }
+
+
+    .day-tab small {
+
+        font-size: 11px;
+
+    }
+
+
+    .schedule-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 5px;
+
+    }
+
+
+    .schedule-row {
+
+        grid-template-columns: 85px 1fr;
+
+    }
+
+
+    .schedule-time {
+
+        padding: 15px 10px;
+
+        font-size: 12px;
+
+    }
+
+
+    .schedule-content {
+
+        padding: 15px;
+
+    }
+
+
+    .schedule-title {
+
+        font-size: 15px;
+
+    }
+
+
+    .schedule-speaker {
+
+        font-size: 13px;
+
+    }
+
+
+    .site-footer {
+
+        flex-direction: column;
+
+    }
+
 }
