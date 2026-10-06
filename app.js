@@ -1,198 +1,614 @@
-let data = null;
-let selectedDay = 0;
-let flattened = [];
+/* =====================================================
+   SOFT MATTER MEET 2026
+   LIVE SCHEDULE
+===================================================== */
 
-const IST = "Asia/Kolkata";
+let scheduleData = {};
 
-function at(date, time){
-  return new Date(`${date}T${time}:00+05:30`);
+let selectedDay = "day1";
+
+
+/* =====================================================
+   LOAD SCHEDULE
+===================================================== */
+
+async function loadSchedule() {
+
+    try {
+
+        const response = await fetch("schedule.json");
+
+        if (!response.ok) {
+
+            throw new Error("Could not load schedule.json");
+
+        }
+
+        scheduleData = await response.json();
+
+        renderSchedule(selectedDay);
+
+        updateLiveStatus();
+
+        setInterval(updateLiveStatus, 1000);
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        document.getElementById("schedule").innerHTML = `
+            <div style="
+                padding:40px;
+                text-align:center;
+                font-family:'PT Serif',serif;
+                color:#777;
+            ">
+                Unable to load the conference schedule.
+            </div>
+        `;
+
+    }
+
 }
 
-function flattenSchedule(){
-  flattened = [];
-  data.days.forEach((day, dayIndex)=>{
-    day.sessions.forEach((block, blockIndex)=>{
-      if(block.items){
-        block.items.forEach((item, itemIndex)=>{
-          flattened.push({
-            ...item,
-            date:day.date,
-            dayIndex,
-            session:block.session,
-            chair:block.chair,
-            id:`d${dayIndex}-s${blockIndex}-i${itemIndex}`
-          });
-        });
-      }else{
-        flattened.push({
-          ...block,
-          date:day.date,
-          dayIndex,
-          id:`d${dayIndex}-b${blockIndex}`
-        });
-      }
+
+/* =====================================================
+   FORMAT TIME
+===================================================== */
+
+function formatTime(time) {
+
+    return time;
+
+}
+
+
+/* =====================================================
+   CONVERT TIME TO MINUTES
+===================================================== */
+
+function timeToMinutes(time) {
+
+    const parts = time.split(":");
+
+    let hours = parseInt(parts[0]);
+
+    const minutes = parseInt(parts[1]);
+
+    return hours * 60 + minutes;
+
+}
+
+
+/* =====================================================
+   GET CURRENT IST TIME
+===================================================== */
+
+function getIndiaTime() {
+
+    const now = new Date();
+
+    const indiaString = now.toLocaleString(
+        "en-US",
+        {
+            timeZone: "Asia/Kolkata"
+        }
+    );
+
+    return new Date(indiaString);
+
+}
+
+
+/* =====================================================
+   UPDATE CLOCK
+===================================================== */
+
+function updateClock() {
+
+    const now = getIndiaTime();
+
+    let hours = now.getHours();
+
+    const minutes = String(
+        now.getMinutes()
+    ).padStart(2, "0");
+
+    const seconds = String(
+        now.getSeconds()
+    ).padStart(2, "0");
+
+    const ampm = hours >= 12 ? "PM" : "AM";
+
+    hours = hours % 12;
+
+    hours = hours || 12;
+
+    document.getElementById("clock").textContent =
+        `${hours}:${minutes}:${seconds} ${ampm}`;
+
+}
+
+
+/* =====================================================
+   FIND CURRENT DAY
+===================================================== */
+
+function getCurrentDay() {
+
+    const now = getIndiaTime();
+
+    const year = now.getFullYear();
+
+    const month = now.getMonth() + 1;
+
+    const date = now.getDate();
+
+    if (
+        year === 2026 &&
+        month === 10 &&
+        date === 12
+    ) {
+
+        return "day1";
+
+    }
+
+    if (
+        year === 2026 &&
+        month === 10 &&
+        date === 13
+    ) {
+
+        return "day2";
+
+    }
+
+    if (
+        year === 2026 &&
+        month === 10 &&
+        date === 14
+    ) {
+
+        return "day3";
+
+    }
+
+    return null;
+
+}
+
+
+/* =====================================================
+   UPDATE LIVE STATUS
+===================================================== */
+
+function updateLiveStatus() {
+
+    updateClock();
+
+    const currentDay = getCurrentDay();
+
+    if (!currentDay || !scheduleData[currentDay]) {
+
+        document.getElementById("current-title").textContent =
+            "Conference schedule";
+
+        document.getElementById("current-speaker").textContent =
+            "Soft Matter Meet 2026";
+
+        document.getElementById("current-time").textContent =
+            "12–14 October 2026";
+
+        document.getElementById("next-title").textContent =
+            "See the full schedule";
+
+        document.getElementById("next-speaker").textContent =
+            "";
+
+        document.getElementById("next-time").textContent =
+            "";
+
+        return;
+
+    }
+
+
+    const now = getIndiaTime();
+
+    const currentMinutes =
+        now.getHours() * 60 +
+        now.getMinutes() +
+        now.getSeconds() / 60;
+
+
+    const events = scheduleData[currentDay];
+
+
+    let currentEvent = null;
+
+    let nextEvent = null;
+
+
+    for (let i = 0; i < events.length; i++) {
+
+        const event = events[i];
+
+        const start =
+            timeToMinutes(event.start);
+
+        const end =
+            timeToMinutes(event.end);
+
+
+        if (
+            currentMinutes >= start &&
+            currentMinutes < end
+        ) {
+
+            currentEvent = event;
+
+            if (i + 1 < events.length) {
+
+                nextEvent = events[i + 1];
+
+            }
+
+            break;
+
+        }
+
+
+        if (
+            currentMinutes < start &&
+            !nextEvent
+        ) {
+
+            nextEvent = event;
+
+        }
+
+    }
+
+
+    /* CURRENT */
+
+    if (currentEvent) {
+
+        document.getElementById(
+            "current-title"
+        ).textContent =
+            currentEvent.title || "Session";
+
+
+        document.getElementById(
+            "current-speaker"
+        ).textContent =
+            currentEvent.speaker || "";
+
+
+        document.getElementById(
+            "current-time"
+        ).textContent =
+            `${currentEvent.start} – ${currentEvent.end}`;
+
+
+        const start =
+            timeToMinutes(currentEvent.start);
+
+        const end =
+            timeToMinutes(currentEvent.end);
+
+
+        const progress =
+            ((currentMinutes - start) /
+            (end - start)) * 100;
+
+
+        document.getElementById(
+            "progress"
+        ).style.width =
+            `${Math.max(0, Math.min(100, progress))}%`;
+
+    }
+
+    else {
+
+        document.getElementById(
+            "current-title"
+        ).textContent =
+            "No session at this time";
+
+
+        document.getElementById(
+            "current-speaker"
+        ).textContent =
+            "Please check the schedule";
+
+
+        document.getElementById(
+            "current-time"
+        ).textContent =
+            "";
+
+
+        document.getElementById(
+            "progress"
+        ).style.width =
+            "0%";
+
+    }
+
+
+    /* NEXT */
+
+    if (nextEvent) {
+
+        document.getElementById(
+            "next-title"
+        ).textContent =
+            nextEvent.title || "Next session";
+
+
+        document.getElementById(
+            "next-speaker"
+        ).textContent =
+            nextEvent.speaker || "";
+
+
+        document.getElementById(
+            "next-time"
+        ).textContent =
+            `${nextEvent.start} – ${nextEvent.end}`;
+
+    }
+
+    else {
+
+        document.getElementById(
+            "next-title"
+        ).textContent =
+            "No more sessions";
+
+
+        document.getElementById(
+            "next-speaker"
+        ).textContent =
+            "";
+
+
+        document.getElementById(
+            "next-time"
+        ).textContent =
+            "";
+
+    }
+
+
+    /* Highlight current row */
+
+    if (selectedDay === currentDay) {
+
+        highlightCurrentEvent(currentEvent);
+
+    }
+
+}
+
+
+/* =====================================================
+   HIGHLIGHT CURRENT EVENT
+===================================================== */
+
+function highlightCurrentEvent(event) {
+
+    const rows =
+        document.querySelectorAll(".schedule-row");
+
+
+    rows.forEach(row => {
+
+        row.classList.remove("current");
+
     });
-  });
-}
 
-function renderTabs(){
-  const tabs=document.getElementById("dayTabs");
-  tabs.innerHTML=data.days.map((d,i)=>
-    `<button class="day-tab ${i===selectedDay?'active':''}" data-day="${i}">
-      ${d.label} · ${d.date.slice(8)}
-    </button>`
-  ).join("");
 
-  tabs.querySelectorAll(".day-tab").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-      selectedDay=Number(btn.dataset.day);
-      renderSchedule();
+    if (!event) {
+
+        return;
+
+    }
+
+
+    rows.forEach(row => {
+
+        if (
+            row.dataset.start === event.start &&
+            row.dataset.title === event.title
+        ) {
+
+            row.classList.add("current");
+
+        }
+
     });
-  });
+
 }
 
-function makeItem(x){
-  const el=document.createElement("div");
-  el.className=`item ${x.type||""}`;
-  el.id=x.id;
 
-  const speaker=x.speaker ? `<div class="speaker">${x.speaker}</div>` : "";
-  const institution=x.institution ? `<div class="institution">${x.institution}</div>` : "";
+/* =====================================================
+   RENDER SCHEDULE
+===================================================== */
 
-  el.innerHTML=`
-    <time>${x.start} – ${x.end}</time>
-    <div>
-      <div class="title">${x.title}</div>
-      ${speaker}
-      ${institution}
-    </div>`;
-  return el;
-}
+function renderSchedule(day) {
 
-function renderSchedule(){
-  const root=document.getElementById("schedule");
-  const d=data.days[selectedDay];
+    const container =
+        document.getElementById("schedule");
 
-  root.innerHTML=`
-    <div class="day-heading">
-      <h3>${d.label} · ${d.weekday}</h3>
-      <span>${data.venue}</span>
-    </div>`;
 
-  d.sessions.forEach(block=>{
-    const session=document.createElement("div");
-    session.className="session";
+    const events =
+        scheduleData[day];
 
-    if(block.items){
-      session.innerHTML=`
-        <div class="session-head">
-          ${block.session}
-          <small> · ${block.items[0].start} — ${block.items.at(-1).end} · Chair: ${block.chair}</small>
-        </div>`;
-      block.items.forEach(item=>session.appendChild(makeItem(item)));
-    }else{
-      session.appendChild(makeItem(block));
+
+    if (!events || events.length === 0) {
+
+        container.innerHTML = `
+            <div style="
+                padding:40px;
+                text-align:center;
+                font-family:'PT Serif',serif;
+                color:#777;
+            ">
+                No schedule available.
+            </div>
+        `;
+
+        return;
+
     }
 
-    root.appendChild(session);
-  });
 
-  updateLive(false);
-}
+    container.innerHTML = "";
 
-function findLiveAndNext(){
-  const now=new Date();
-  const today=now.toLocaleDateString("en-CA",{timeZone:IST});
-  const todays=flattened.filter(x=>x.date===today);
 
-  let live=null;
-  let next=null;
+    events.forEach(event => {
 
-  for(const x of todays){
-    const start=at(x.date,x.start);
-    const end=at(x.date,x.end);
+        const row =
+            document.createElement("div");
 
-    if(now>=start && now<end){
-      live=x;
-      break;
+
+        row.className =
+            "schedule-row";
+
+
+        if (
+            event.type === "break" ||
+            event.type === "meal"
+        ) {
+
+            row.classList.add(
+                "break-row"
+            );
+
+        }
+
+
+        row.dataset.start =
+            event.start;
+
+        row.dataset.title =
+            event.title;
+
+
+        row.innerHTML = `
+
+            <div class="schedule-time">
+                ${event.start}
+                –
+                ${event.end}
+            </div>
+
+            <div class="schedule-content">
+
+                <div class="schedule-title">
+                    ${event.title}
+                </div>
+
+                ${
+                    event.speaker
+                    ?
+                    `
+                    <div class="schedule-speaker">
+                        ${event.speaker}
+                    </div>
+                    `
+                    :
+                    ""
+                }
+
+                ${
+                    event.type
+                    ?
+                    `
+                    <div class="schedule-type">
+                        ${event.type}
+                    </div>
+                    `
+                    :
+                    ""
+                }
+
+            </div>
+
+        `;
+
+
+        container.appendChild(row);
+
+    });
+
+
+    const currentDay =
+        getCurrentDay();
+
+
+    if (
+        currentDay === day
+    ) {
+
+        updateLiveStatus();
+
     }
-    if(now<start && !next) next=x;
-  }
 
-  if(!next && live){
-    const all=flattened.filter(x=>at(x.date,x.start)>at(live.date,live.end));
-    next=all[0]||null;
-  }
-
-  return {live,next,now};
 }
 
-function updateLive(scroll=true){
-  if(!data)return;
 
-  const {live,next,now}=findLiveAndNext();
+/* =====================================================
+   DAY BUTTONS
+===================================================== */
 
-  const liveTitle=document.getElementById("liveTitle");
-  const liveSubtitle=document.getElementById("liveSubtitle");
-  const liveTime=document.getElementById("liveTime");
-  const nextTitle=document.getElementById("nextTitle");
-  const nextSubtitle=document.getElementById("nextSubtitle");
-  const nextTime=document.getElementById("nextTime");
-  const progress=document.getElementById("progress");
-  const progressWrap=document.querySelector(".progress-wrap");
+document
+    .querySelectorAll(".day-tab")
+    .forEach(button => {
 
-  document.querySelectorAll(".item.live").forEach(e=>e.classList.remove("live"));
+        button.addEventListener(
+            "click",
+            () => {
 
-  if(live){
-    liveTitle.textContent=live.title;
-    liveSubtitle.textContent=[live.speaker,live.institution].filter(Boolean).join(" · ");
-    liveTime.textContent=`${live.start} – ${live.end}`;
+                document
+                    .querySelectorAll(".day-tab")
+                    .forEach(tab => {
 
-    const start=at(live.date,live.start);
-    const end=at(live.date,live.end);
-    const pct=Math.max(0,Math.min(100,((now-start)/(end-start))*100));
-    progress.style.width=pct+"%";
-    progressWrap.style.display="block";
+                        tab.classList.remove(
+                            "active"
+                        );
 
-    const el=document.getElementById(live.id);
-    if(el){
-      el.classList.add("live");
-      if(scroll && selectedDay!==live.dayIndex){
-        selectedDay=live.dayIndex;
-        renderTabs();
-        renderSchedule();
-      }
-    }
-  }else{
-    liveTitle.textContent="No session happening now";
-    liveSubtitle.textContent="";
-    liveTime.textContent="";
-    progress.style.width="0%";
-    progressWrap.style.display="none";
-  }
+                    });
 
-  if(next){
-    nextTitle.textContent=next.title;
-    nextSubtitle.textContent=[next.speaker,next.institution].filter(Boolean).join(" · ");
-    nextTime.textContent=`${next.start} – ${next.end}`;
-  }else{
-    nextTitle.textContent="No more sessions scheduled";
-    nextSubtitle.textContent="";
-    nextTime.textContent="";
-  }
-}
 
-fetch("schedule.json")
-  .then(r=>r.json())
-  .then(d=>{
-    data=d;
-    flattenSchedule();
-    renderTabs();
-    renderSchedule();
-    updateLive(false);
-    setInterval(()=>updateLive(false),1000);
-  })
-  .catch(err=>{
-    document.getElementById("liveTitle").textContent="Unable to load schedule";
-    console.error(err);
-  });
+                button.classList.add(
+                    "active"
+                );
+
+
+                selectedDay =
+                    button.dataset.day;
+
+
+                renderSchedule(
+                    selectedDay
+                );
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadSchedule();
