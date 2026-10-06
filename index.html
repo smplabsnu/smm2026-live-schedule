@@ -20,31 +20,38 @@
 
 <body>
 
-    <!-- ================= HEADER ================= -->
-    <header class="site-header">
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
 
         <div class="header-left">
 
             <img
                 src="snu-logo.png"
-                alt="Shiv Nadar Institution of Eminence"
                 class="snu-logo"
+                alt="SNU Logo"
             >
 
-            <div class="conference-heading">
+            <div class="header-text">
 
-                <div class="conference-title">
+                <!-- AMARANTH -->
+                <div class="conference-name">
                     Soft Matter Meet
                 </div>
 
-                <div class="conference-subtitle">
+                <!-- AMARANTH -->
+                <div class="conference-theme">
                     Membrane Biophysics
                 </div>
 
+                <!-- PT SERIF -->
                 <div class="department">
                     Department of Physics
                 </div>
 
+                <!-- PT SERIF -->
                 <div class="school">
                     School of Natural Sciences
                 </div>
@@ -53,85 +60,117 @@
 
         </div>
 
-        <div class="conference-date">
+
+        <!-- PT SERIF -->
+        <div class="date">
             12–14 October 2026
         </div>
 
     </header>
 
 
-    <!-- ================= MAIN ================= -->
-    <main class="main-container">
+    <!-- =========================
+         MAIN
+    ========================== -->
 
-        <!-- LIVE STATUS -->
-        <section class="live-section">
+    <main class="container">
 
-            <div class="live-header">
+        <!-- LIVE HEADER -->
 
-                <div class="live-label">
-                    <span class="live-dot"></span>
-                    LIVE SCHEDULE
+        <div class="live-heading">
+
+            <div class="live-status">
+
+                <span class="live-dot"></span>
+
+                <span>LIVE SCHEDULE</span>
+
+            </div>
+
+            <div
+                id="clock"
+                class="clock"
+            >
+                --:--
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             LIVE CARDS
+        ========================== -->
+
+        <section class="live-grid">
+
+            <!-- HAPPENING NOW -->
+
+            <div class="live-card happening">
+
+                <div class="card-label">
+                    HAPPENING NOW
                 </div>
 
-                <div id="current-time" class="current-time">
-                    --:--
+                <div
+                    id="current-title"
+                    class="live-title"
+                >
+                    Loading...
+                </div>
+
+                <div
+                    id="current-speaker"
+                    class="live-speaker"
+                >
+                    --
+                </div>
+
+                <div
+                    id="current-time"
+                    class="live-time"
+                >
+                    --
+                </div>
+
+                <div class="progress-background">
+
+                    <div
+                        id="progress"
+                        class="progress"
+                    ></div>
+
                 </div>
 
             </div>
 
 
-            <div class="live-grid">
+            <!-- NEXT -->
 
-                <!-- HAPPENING NOW -->
-                <div class="live-card happening-card">
+            <div class="live-card next">
 
-                    <div class="card-label">
-                        HAPPENING NOW
-                    </div>
-
-                    <div id="current-session" class="session-title">
-                        Loading...
-                    </div>
-
-                    <div id="current-speaker" class="session-speaker">
-                        Please wait
-                    </div>
-
-                    <div id="current-time-range" class="session-time">
-                        --
-                    </div>
-
-                    <div class="progress-container">
-
-                        <div
-                            id="progress-bar"
-                            class="progress-bar"
-                        ></div>
-
-                    </div>
-
+                <div class="card-label">
+                    NEXT
                 </div>
 
+                <div
+                    id="next-title"
+                    class="live-title"
+                >
+                    Loading...
+                </div>
 
-                <!-- NEXT -->
-                <div class="live-card next-card">
+                <div
+                    id="next-speaker"
+                    class="live-speaker"
+                >
+                    --
+                </div>
 
-                    <div class="card-label">
-                        NEXT
-                    </div>
-
-                    <div id="next-session" class="session-title">
-                        Loading...
-                    </div>
-
-                    <div id="next-speaker" class="session-speaker">
-                        Please wait
-                    </div>
-
-                    <div id="next-time-range" class="session-time">
-                        --
-                    </div>
-
+                <div
+                    id="next-time"
+                    class="live-time"
+                >
+                    --
                 </div>
 
             </div>
@@ -139,9 +178,11 @@
         </section>
 
 
-        <!-- ================= DAY NAVIGATION ================= -->
+        <!-- =========================
+             DAY TABS
+        ========================== -->
 
-        <section class="schedule-section">
+        <section class="schedule">
 
             <div class="day-tabs">
 
@@ -149,34 +190,36 @@
                     class="day-tab active"
                     data-day="day1"
                 >
-                    <span>DAY 1</span>
-                    <small>12 OCT</small>
+                    <strong>DAY 1</strong>
+                    <span>12 OCT</span>
                 </button>
 
                 <button
                     class="day-tab"
                     data-day="day2"
                 >
-                    <span>DAY 2</span>
-                    <small>13 OCT</small>
+                    <strong>DAY 2</strong>
+                    <span>13 OCT</span>
                 </button>
 
                 <button
                     class="day-tab"
                     data-day="day3"
                 >
-                    <span>DAY 3</span>
-                    <small>14 OCT</small>
+                    <strong>DAY 3</strong>
+                    <span>14 OCT</span>
                 </button>
 
             </div>
 
 
-            <!-- SCHEDULE -->
+            <!-- =========================
+                 SCHEDULE HEADER
+            ========================== -->
 
-            <div class="schedule-header">
+            <div class="schedule-top">
 
-                <div>
+                <div class="schedule-heading">
                     CONFERENCE SCHEDULE
                 </div>
 
@@ -187,14 +230,15 @@
             </div>
 
 
-            <div id="schedule-container" class="schedule-container">
+            <!-- =========================
+                 SCHEDULE
+            ========================== -->
 
-                <!-- JavaScript inserts schedule here -->
-
-                <div class="loading">
-                    Loading schedule...
-                </div>
-
+            <div
+                id="schedule"
+                class="schedule-list"
+            >
+                Loading schedule...
             </div>
 
         </section>
@@ -202,9 +246,11 @@
     </main>
 
 
-    <!-- ================= FOOTER ================= -->
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
-    <footer class="site-footer">
+    <footer class="footer">
 
         <div>
             Soft Matter Meet 2026: Membrane Biophysics
