@@ -1,49 +1,223 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Soft Matter Meet 2026 | Membrane Biophysics</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Soft Matter Meet 2026: Membrane Biophysics</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=PT+Serif:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header class="hero-header">
-  <img class="snu-logo" src="snu-logo.png" alt="Shiv Nadar Institution of Eminence">
-  <h1>Soft Matter Meet 2026</h1>
-  <h2>Membrane Biophysics</h2>
-  <div class="department">Department of Physics</div>
-  <div class="school">School of Natural Sciences</div>
-  <div class="date">12 – 14 OCTOBER 2026</div>
-</header>
 
-<main class="container">
-  <section class="live-panel">
-    <div class="live-column">
-      <div class="panel-label"><span class="red-dot"></span> HAPPENING NOW</div>
-      <div id="liveTitle" class="live-title">No session happening now</div>
-      <div id="liveSubtitle" class="live-subtitle"></div>
-      <div id="liveTime" class="live-time"></div>
-      <div class="progress-wrap"><div id="progress" class="progress"></div></div>
-    </div>
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
 
-    <div class="next-column">
-      <div class="panel-label next-label"><span class="arrow">→</span> NEXT</div>
-      <div id="nextTitle" class="next-title">Loading…</div>
-      <div id="nextSubtitle" class="next-subtitle"></div>
-      <div id="nextTime" class="next-time"></div>
-    </div>
-  </section>
+        <div class="header-left">
 
-  <section class="day-tabs" id="dayTabs"></section>
+            <img
+                src="snu-logo.png"
+                alt="Shiv Nadar Institution of Eminence"
+                class="snu-logo"
+            >
 
-  <section id="schedule" class="schedule"></section>
-</main>
+            <div class="conference-heading">
 
-<footer>
-  <div><strong>Soft Matter Meet 2026: Membrane Biophysics</strong></div>
-  <div>12–14 October 2026 · G210, G Block, Second Floor</div>
-</footer>
+                <div class="conference-title">
+                    Soft Matter Meet
+                </div>
 
-<script src="app.js"></script>
+                <div class="conference-subtitle">
+                    Membrane Biophysics
+                </div>
+
+                <div class="department">
+                    Department of Physics
+                </div>
+
+                <div class="school">
+                    School of Natural Sciences
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="conference-date">
+            12–14 October 2026
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="main-container">
+
+        <!-- LIVE STATUS -->
+        <section class="live-section">
+
+            <div class="live-header">
+
+                <div class="live-label">
+                    <span class="live-dot"></span>
+                    LIVE SCHEDULE
+                </div>
+
+                <div id="current-time" class="current-time">
+                    --:--
+                </div>
+
+            </div>
+
+
+            <div class="live-grid">
+
+                <!-- HAPPENING NOW -->
+                <div class="live-card happening-card">
+
+                    <div class="card-label">
+                        HAPPENING NOW
+                    </div>
+
+                    <div id="current-session" class="session-title">
+                        Loading...
+                    </div>
+
+                    <div id="current-speaker" class="session-speaker">
+                        Please wait
+                    </div>
+
+                    <div id="current-time-range" class="session-time">
+                        --
+                    </div>
+
+                    <div class="progress-container">
+
+                        <div
+                            id="progress-bar"
+                            class="progress-bar"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NEXT -->
+                <div class="live-card next-card">
+
+                    <div class="card-label">
+                        NEXT
+                    </div>
+
+                    <div id="next-session" class="session-title">
+                        Loading...
+                    </div>
+
+                    <div id="next-speaker" class="session-speaker">
+                        Please wait
+                    </div>
+
+                    <div id="next-time-range" class="session-time">
+                        --
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DAY NAVIGATION ================= -->
+
+        <section class="schedule-section">
+
+            <div class="day-tabs">
+
+                <button
+                    class="day-tab active"
+                    data-day="day1"
+                >
+                    <span>DAY 1</span>
+                    <small>12 OCT</small>
+                </button>
+
+                <button
+                    class="day-tab"
+                    data-day="day2"
+                >
+                    <span>DAY 2</span>
+                    <small>13 OCT</small>
+                </button>
+
+                <button
+                    class="day-tab"
+                    data-day="day3"
+                >
+                    <span>DAY 3</span>
+                    <small>14 OCT</small>
+                </button>
+
+            </div>
+
+
+            <!-- SCHEDULE -->
+
+            <div class="schedule-header">
+
+                <div>
+                    CONFERENCE SCHEDULE
+                </div>
+
+                <div class="venue">
+                    G210 · G Block · Second Floor
+                </div>
+
+            </div>
+
+
+            <div id="schedule-container" class="schedule-container">
+
+                <!-- JavaScript inserts schedule here -->
+
+                <div class="loading">
+                    Loading schedule...
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="site-footer">
+
+        <div>
+            Soft Matter Meet 2026: Membrane Biophysics
+        </div>
+
+        <div>
+            Department of Physics · School of Natural Sciences
+        </div>
+
+    </footer>
+
+
+    <script src="app.js"></script>
+
 </body>
 </html>
