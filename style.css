@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+
+:root{
+  --navy:#0b2947;
+  --red:#ef353b;
+  --blue:#0d62a5;
+  --light-blue:#dfe8f2;
+  --line:#d3dce7;
+  --muted:#65758a;
+  --bg:#ffffff;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--navy);
+  font-family:'Nunito Sans',Arial,sans-serif;
+}
+
+.hero-header{
+  text-align:center;
+  padding:7px 20px 58px;
+}
+.snu-logo{
+  width:190px;
+  height:auto;
+  display:block;
+  margin:0 auto 14px;
+  object-fit:contain;
+}
+.hero-header h1{
+  margin:0;
+  font-family:'Barlow Condensed',Arial,sans-serif;
+  font-size:39px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:.1px;
+}
+.hero-header h2{
+  margin:10px 0 15px;
+  color:var(--red);
+  font-family:'Barlow Condensed',Arial,sans-serif;
+  font-size:52px;
+  line-height:1;
+  font-weight:800;
+}
+.department,.school{
+  font-family:'Barlow Condensed',Arial,sans-serif;
+  font-size:22px;
+  font-weight:600;
+  letter-spacing:.2px;
+}
+.school{margin-top:2px}
+.date{
+  margin-top:17px;
+  font-family:'Barlow Condensed',Arial,sans-serif;
+  font-size:20px;
+  font-weight:600;
+  letter-spacing:3px;
+}
+
+.container{
+  width:min(1020px,calc(100% - 40px));
+  margin:0 auto;
+}
+
+.live-panel{
+  min-height:153px;
+  border:1px solid #cfd9e5;
+  border-radius:15px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  margin-bottom:20px;
+  overflow:hidden;
+}
+.live-column,.next-column{
+  padding:21px 30px;
+}
+.next-column{
+  border-left:1px solid #cfd9e5;
+}
+.panel-label{
+  color:var(--red);
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:.3px;
+}
+.red-dot{
+  display:inline-block;
+  width:16px;height:16px;
+  border-radius:50%;
+  background:#ef353b;
+  vertical-align:-2px;
+  margin-right:9px;
+}
+.next-label{color:var(--navy)}
+.arrow{
+  display:inline-block;
+  font-size:25px;
+  line-height:10px;
+  margin-right:8px;
+  font-weight:400;
+}
+.live-title,.next-title{
+  margin-top:9px;
+  font-family:'Barlow Condensed',Arial,sans-serif;
+  font-size:21px;
+  font-weight:800;
+  line-height:1.15;
+}
+.live-subtitle,.next-subtitle{
+  color:#718096;
+  font-size:13px;
+  margin-top:5px;
+}
+.live-time,.next-time{
+  margin-top:8px;
+  font-family:'Barlow Condensed',Arial,sans-serif;
+  font-weight:800;
+  font-size:15px;
+}
+.progress-wrap{
+  margin-top:11px;
+  height:4px;
+  background:#edf1f5;
+  border-radius:10px;
+  overflow:hidden;
+  display:none;
+}
+.progress{
+  width:0%;
+  height:100%;
+  background:var(--red);
+}
+
+.day-tabs{
+  display:flex;
+  gap:10px;
+  margin:0 0 25px;
+}
+.day-tab{
+  border:0;
+  border-radius:9px;
+  background:#dfe7f0;
+  color:var(--navy);
+  padding:13px 22px;
+  font-family:'Barlow Condensed',Arial,sans-serif;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+}
+.day-tab.active{
+  background:#0b2947;
+  color:#fff;
+}
+.day-tab:hover{filter:brightness(.98)}
+
+.day-heading{
+  margin-top:5px;
+  margin-bottom:12px;
+  padding-bottom:9px;
+  border-bottom:2px solid #dbe2ea;
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+}
+.day-heading h3{
+  margin:0;
+  font-family:'Barlow Condensed',Arial,sans-serif;
+  font-size:24px;
+}
+.day-heading span{
+  font-size:12px;
+  color:#718096;
+  font-weight:700;
+}
+
+.session{margin-bottom:14px}
+.session-head{
+  background:#e8eef5;
+  border-radius:8px 8px 0 0;
+  padding:9px 13px;
+  font-family:'Barlow Condensed',Arial,sans-serif;
+  font-size:15px;
+  font-weight:800;
+  color:#294766;
+}
+.session-head small{
+  color:#6c7b8e;
+  font-weight:600;
+  font-size:13px;
+}
+.item{
+  display:grid;
+  grid-template-columns:125px 1fr;
+  gap:15px;
+  padding:13px 14px;
+  border:1px solid #e1e6ec;
+  border-top:0;
+  background:#fff;
+}
+.item:first-of-type{border-radius:0 0 7px 7px}
+.item time{
+  font-family:'Barlow Condensed',Arial,sans-serif;
+  font-weight:800;
+  font-size:14px;
+}
+.item .title{
+  font-family:'Barlow Condensed',Arial,sans-serif;
+  font-weight:700;
+  font-size:16px;
+  line-height:1.2;
+}
+.speaker{
+  margin-top:4px;
+  color:#17639b;
+  font-size:13px;
+  font-weight:800;
+}
+.institution{
+  color:#7a8797;
+  font-size:12px;
+  margin-top:1px;
+}
+.tag{
+  display:none;
+}
+.item.break{
+  background:#f7f8fa;
+}
+.item.live{
+  background:#fff7f7;
+  box-shadow:inset 4px 0 0 var(--red);
+}
+.item.done{opacity:.56}
+
+footer{
+  margin-top:45px;
+  padding:22px 20px;
+  border-top:1px solid #e1e6ec;
+  color:#6f7c8e;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  font-size:12px;
+}
+
+@media(max-width:700px){
+  .hero-header{padding-bottom:30px}
+  .snu-logo{width:160px}
+  .hero-header h1{font-size:31px}
+  .hero-header h2{font-size:40px}
+  .department,.school{font-size:18px}
+  .date{font-size:16px;letter-spacing:2px}
+  .container{width:min(100% - 24px,1020px)}
+  .live-panel{grid-template-columns:1fr}
+  .next-column{border-left:0;border-top:1px solid #cfd9e5}
+  .live-column,.next-column{padding:18px 20px}
+  .day-tabs{overflow:auto}
+  .day-tab{white-space:nowrap;padding:11px 15px}
+  .item{grid-template-columns:86px 1fr;gap:10px}
+  .item time{font-size:12px}
+  .item .title{font-size:15px}
+  .day-heading{display:block}
+  .day-heading span{display:block;margin-top:4px}
+  footer{display:block}
+  footer div+div{margin-top:5px}
+}

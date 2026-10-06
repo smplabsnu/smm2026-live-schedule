@@ -1,0 +1,440 @@
+{
+  "conference": "Soft Matter Meet 2026: Membrane Biophysics",
+  "venue": "G210, G Block, Second Floor",
+  "timezone": "Asia/Kolkata",
+  "days": [
+    {
+      "date": "2026-10-12",
+      "label": "Day 1",
+      "weekday": "Monday",
+      "sessions": [
+        {
+          "start": "08:15",
+          "end": "09:30",
+          "title": "Breakfast and Registration",
+          "location": "G Block Atrium",
+          "type": "break"
+        },
+        {
+          "start": "09:30",
+          "end": "10:00",
+          "title": "Inauguration",
+          "type": "ceremony"
+        },
+        {
+          "session": "Session 1",
+          "chair": "Bibhu Ranjan Sarangi",
+          "items": [
+            {
+              "start": "10:00",
+              "end": "10:30",
+              "speaker": "John Katsaras",
+              "title": "Are neuronal lipid bilayers a new drug target?",
+              "type": "invited",
+              "institution": "Oak Ridge National Laboratory, USA"
+            },
+            {
+              "start": "10:30",
+              "end": "11:00",
+              "speaker": "Sobhan Sen",
+              "title": "Tailored fluorescent probes for imaging and detecting membrane perturbations",
+              "type": "invited",
+              "institution": "JNU, New Delhi"
+            }
+          ]
+        },
+        {
+          "start": "11:00",
+          "end": "11:30",
+          "title": "Tea/Coffee Break",
+          "type": "break"
+        },
+        {
+          "session": "Session 2",
+          "chair": "P. B. Sunil Kumar",
+          "items": [
+            {
+              "start": "11:30",
+              "end": "12:00",
+              "speaker": "Hirak Chakraborty",
+              "title": "Fusion peptide modulates membrane organization and dynamics: A macroscopic to nanoscopic view",
+              "type": "contributed",
+              "institution": "Sambalpur University, Odisha"
+            },
+            {
+              "start": "12:00",
+              "end": "12:30",
+              "speaker": "Durba Roy",
+              "title": "The evolving role of polysaccharides as eco-friendly membrane builders",
+              "type": "contributed",
+              "institution": "BITS-Hyderabad"
+            },
+            {
+              "start": "12:30",
+              "end": "12:50",
+              "speaker": "Neha Mathur",
+              "title": "Hyaluronan chain length and grafting density regulate membrane wrapping of extracellular vesicles",
+              "type": "contributed",
+              "institution": "IISER Mohali"
+            },
+            {
+              "start": "12:50",
+              "end": "13:10",
+              "speaker": "Subhadip Basu",
+              "title": "Lattice simulation of mixture of proteins and lipids",
+              "type": "contributed",
+              "institution": "Ben Gurion University of the Negev, Israel"
+            }
+          ]
+        },
+        {
+          "start": "13:10",
+          "end": "14:15",
+          "title": "Lunch",
+          "location": "G Block Atrium",
+          "type": "break"
+        },
+        {
+          "start": "14:15",
+          "end": "15:30",
+          "title": "Poster Session",
+          "type": "poster"
+        },
+        {
+          "session": "Session 3",
+          "chair": "Sobhan Sen",
+          "items": [
+            {
+              "start": "15:30",
+              "end": "16:00",
+              "speaker": "Georg Pabst",
+              "title": "Twists of fat in plasma membranes",
+              "type": "invited",
+              "institution": "Institute of Molecular Biosciences, Biophysics Division, University of Graz, Austria"
+            },
+            {
+              "start": "16:00",
+              "end": "16:30",
+              "speaker": "Madan Rao",
+              "title": "Active control of golgi size, shape and number",
+              "type": "invited",
+              "institution": "NCBS - TIFR, Bengaluru"
+            },
+            {
+              "start": "16:30",
+              "end": "17:00",
+              "speaker": "Antonio Benedetto",
+              "title": "Softening or stiffening? How ionic liquids alter lipid bilayer mechanics: AFM beyond topography",
+              "type": "invited",
+              "institution": "University College Dublin, Ireland"
+            }
+          ]
+        },
+        {
+          "start": "17:00",
+          "end": "17:30",
+          "title": "Tea/Coffee Break",
+          "type": "break"
+        },
+        {
+          "start": "17:30",
+          "end": "19:00",
+          "title": "Laboratory & Campus Visit",
+          "type": "activity"
+        },
+        {
+          "start": "19:30",
+          "end": "21:00",
+          "title": "Dinner",
+          "location": "G Block Atrium",
+          "type": "break"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-13",
+      "label": "Day 2",
+      "weekday": "Tuesday",
+      "sessions": [
+        {
+          "start": "08:15",
+          "end": "09:00",
+          "title": "Breakfast",
+          "location": "G Block Atrium",
+          "type": "break"
+        },
+        {
+          "session": "Session 1",
+          "chair": "Sovan Lal Das",
+          "items": [
+            {
+              "start": "09:00",
+              "end": "09:30",
+              "speaker": "P. B. Sunil Kumar",
+              "title": "Rotational dynamics of bound pairs of bacteria-induced membrane tubes",
+              "type": "invited",
+              "institution": "IIT Madras"
+            },
+            {
+              "start": "09:30",
+              "end": "10:00",
+              "speaker": "Gautam V. Soni",
+              "title": "Electrofluidic devices to isolate cancer cells based on their whole cell stiffness",
+              "type": "contributed",
+              "institution": "Raman Research Institute, Bengaluru"
+            },
+            {
+              "start": "10:00",
+              "end": "10:30",
+              "speaker": "Sourav Haldar",
+              "title": "Novel antiviral strategy based on host cell plasma membranes",
+              "type": "contributed",
+              "institution": "Manipal Institute of Virology"
+            },
+            {
+              "start": "10:30",
+              "end": "10:50",
+              "speaker": "Harsh Jain",
+              "title": "Non-equilibrium fission and fusion control in synthetic lipid membranes via purely physical mechanisms",
+              "type": "contributed",
+              "institution": "NCBS - TIFR, Bengaluru"
+            }
+          ]
+        },
+        {
+          "start": "10:50",
+          "end": "11:20",
+          "title": "Tea/Coffee Break",
+          "type": "break"
+        },
+        {
+          "session": "Session 2",
+          "chair": "Antonio Benedetto",
+          "items": [
+            {
+              "start": "11:30",
+              "end": "12:00",
+              "speaker": "Prabal K. Maiti",
+              "title": "From mycolic acid conformational heterogeneity to drug permeability: Molecular insights into the mycobacterial outer membrane",
+              "type": "invited",
+              "institution": "IISc Bengaluru"
+            },
+            {
+              "start": "12:00",
+              "end": "12:30",
+              "speaker": "Durba Sengupta",
+              "title": "Modeling and remodeling membranes",
+              "type": "invited",
+              "institution": "CSIR NCL, Pune"
+            },
+            {
+              "start": "12:30",
+              "end": "13:00",
+              "speaker": "Tripta Bhatia",
+              "title": "Generation of bilayer asymmetry and membrane curvature induced by the starch-cleaving enzyme alpha amylase",
+              "type": "contributed",
+              "institution": "IISER Mohali"
+            },
+            {
+              "start": "13:00",
+              "end": "13:20",
+              "speaker": "Dipak Patra",
+              "title": "Emergent run-and-tumble motion of vesicles driven by active particles",
+              "type": "contributed",
+              "institution": "IISER Mohali"
+            }
+          ]
+        },
+        {
+          "start": "13:20",
+          "end": "14:30",
+          "title": "Lunch",
+          "location": "G Block Atrium",
+          "type": "break"
+        },
+        {
+          "session": "Session 3",
+          "chair": "Sanat Karmakar",
+          "items": [
+            {
+              "start": "14:30",
+              "end": "14:50",
+              "speaker": "Oriol Nos Aguilà",
+              "title": "Quantifying the Mechanics of Membranes, Biomolecular Condensates and Intracellular Environments with SENSOCELL+ Optical Tweezers",
+              "type": "sponsor",
+              "institution": "IMPETUX Lab, Barcelona, Spain (represented by The PEAK Analytical, India)"
+            },
+            {
+              "start": "14:50",
+              "end": "15:20",
+              "speaker": "Ananya Debnath",
+              "title": "5-HT alters noncognate GPCR signaling network via membrane redistribution and allostericity",
+              "type": "contributed",
+              "institution": "IIT Jodhpur"
+            },
+            {
+              "start": "15:20",
+              "end": "15:50",
+              "speaker": "Rajendra P. Giri",
+              "title": "Engineering biomembranes with carbon-based nanomaterials for addressing diagnostic and therapeutic challenges",
+              "type": "contributed",
+              "institution": "IIT(ISM) Dhanbad"
+            },
+            {
+              "start": "15:50",
+              "end": "16:20",
+              "speaker": "Sovan Lal Das",
+              "title": "Interaction of proteins and other macromolecules with lipid bilayer membranes: theory, experiments and simulations",
+              "type": "contributed",
+              "institution": "IIT Palakkad"
+            },
+            {
+              "start": "16:20",
+              "end": "16:50",
+              "speaker": "Kheya Sengupta",
+              "title": "Dynamics of membrane adhesion mediated by weak bonds: effect of mobility, length and flexibility",
+              "type": "contributed",
+              "institution": "French National Centre for Scientific Research, Paris (CNRS)"
+            }
+          ]
+        },
+        {
+          "start": "16:50",
+          "end": "17:30",
+          "title": "Tea/Coffee Break",
+          "type": "break"
+        },
+        {
+          "start": "17:30",
+          "end": "18:30",
+          "title": "A story of scientific collaboration and friendship",
+          "speaker": "John Katsaras",
+          "institution": "Oak Ridge National Laboratory, USA",
+          "type": "special"
+        },
+        {
+          "start": "18:30",
+          "end": "19:00",
+          "title": "Informal discussions and opinions on the work of Prof. Raghunathan",
+          "type": "special"
+        },
+        {
+          "start": "19:30",
+          "end": "21:00",
+          "title": "Dinner",
+          "location": "G Block Atrium",
+          "type": "break"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "label": "Day 3",
+      "weekday": "Wednesday",
+      "sessions": [
+        {
+          "start": "08:15",
+          "end": "09:00",
+          "title": "Breakfast",
+          "location": "G Block Atrium",
+          "type": "break"
+        },
+        {
+          "session": "Session 1",
+          "chair": "Kheya Sengupta",
+          "items": [
+            {
+              "start": "09:00",
+              "end": "09:30",
+              "speaker": "Ashutosh Kumar",
+              "title": "Interaction of Amylin toxic conformations with lipid membranes/lipid droplets and its implications in T2DM",
+              "type": "contributed",
+              "institution": "IIT-Bombay"
+            },
+            {
+              "start": "09:30",
+              "end": "10:00",
+              "speaker": "Venus Singh Mithu",
+              "title": "From in-vitro models to drug delivery: Phospholipid membranes in amyloid aggregation",
+              "type": "invited",
+              "institution": "Max Planck Institute for Multidisciplinary Sciences, Gottingen, Germany"
+            },
+            {
+              "start": "10:00",
+              "end": "10:30",
+              "speaker": "Jiarul Midya",
+              "title": "Cellular uptake of soft particles: From vesicles to condensates",
+              "type": "contributed",
+              "institution": "IIT Bhubaneswar"
+            },
+            {
+              "start": "10:30",
+              "end": "11:00",
+              "speaker": "Anil K. Dasanna",
+              "title": "Membrane remodeling by passive and active particle interactions",
+              "type": "contributed",
+              "institution": "IISER Mohali"
+            }
+          ]
+        },
+        {
+          "start": "11:00",
+          "end": "11:30",
+          "title": "Tea/Coffee Break",
+          "type": "break"
+        },
+        {
+          "session": "Session 2",
+          "chair": "Sreeja Sasidharan",
+          "items": [
+            {
+              "start": "11:30",
+              "end": "12:00",
+              "speaker": "Bharat Kumar",
+              "title": "Interactions between gamma - oryzanol and bovine serum albumin at air - water interface",
+              "type": "contributed",
+              "institution": "Central University of Karnataka"
+            },
+            {
+              "start": "12:00",
+              "end": "12:30",
+              "speaker": "Raj Kumar Gupta",
+              "title": "Interfacial phase behavior, molecular orientation, and drug-lipid interactions in biomimetic langmuir and langmuir–blodgett films",
+              "type": "contributed",
+              "institution": "BITS Pilani"
+            },
+            {
+              "start": "12:30",
+              "end": "13:00",
+              "speaker": "Nidhi Malhotra",
+              "title": "Lipid-protein interactions in lysosomal membrane organization and function",
+              "type": "contributed",
+              "institution": "SNIoE, Delhi NCR"
+            },
+            {
+              "start": "13:00",
+              "end": "13:20",
+              "speaker": "Deepak Kumar",
+              "title": "Deciphering connexin 43 gap junction docking and undocking: Molecular dynamics insights from anton3 simulations",
+              "type": "contributed",
+              "institution": "Ashoka University, Delhi NCR"
+            }
+          ]
+        },
+        {
+          "start": "13:20",
+          "end": "13:30",
+          "title": "Vote of Thanks",
+          "type": "ceremony"
+        },
+        {
+          "start": "13:30",
+          "end": "15:00",
+          "title": "Lunch",
+          "location": "G Block Atrium",
+          "type": "break"
+        }
+      ]
+    }
+  ]
+}
